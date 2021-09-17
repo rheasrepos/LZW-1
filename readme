@@ -3,3 +3,5 @@ runs lzw on the input file, outputs an array of string ie. a,b,c,ab,ca,abca,bacb
 converts array into 97,98,98,256,258, etc. called output 1 
 changes output 1 into that array binaries based on output1
 uses BinaryOut class to output a binary.dat file based on output
+decode uses the ArrayList<Integers> to recreate the dictionary
+decodes the array list and prints out the decoded string
