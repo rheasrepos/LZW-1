@@ -125,16 +125,17 @@ public class LZW2 {
 
         int counter = 256;
         String firstLetOfNxt = "";
+        String decodedString = "";
 
         for(int i = 0; i < intOutput.size()-1; i++)
         {
             Integer currInt = intOutput.get(i);
             String currStr = map.get(currInt);
             Integer nextInt = intOutput.get(i+1);
-            String nextStr = map.get(nextInt);
+         //   String nextStr = map.get(nextInt);
 
             
-            //have to add case of 262 
+            //add case of 262 - when the value doesnt exist yet 
             if(!map.containsKey(nextInt)) {
             	currStr = map.get(currInt);
             	currStr += firstLetOfNxt;
@@ -144,20 +145,13 @@ public class LZW2 {
             }
             
              firstLetOfNxt = currStr.substring(0,1);
-             map.put(counter, currStr+ firstLetOfNxt);
-             counter++;
+             map.put(counter++, map.get(currInt) + firstLetOfNxt);
+             
+            decodedString+= map.get(currInt);// rheas tinme cahnge
+           
              
         }
-        
-        
-        String output = "";
-
-        for(int i = 0; i < intOutput.size(); i++)
-        {
-            int o = intOutput.get(i);
-            output += map.get(o);
-        }
-        System.out.print(output);
+       System.out.println(decodedString);
     }
 	
 	public String full()
