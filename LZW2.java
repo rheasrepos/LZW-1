@@ -36,7 +36,7 @@ public class LZW2 {
 		 {
 			 full += reader.nextLine(); 
 		 }
-		 reader.close();
+		 reader.close(); // notes - rhea - they read the file into a string rather than just doing it as they read the file
 		
 	}
 
@@ -50,7 +50,7 @@ public class LZW2 {
 
 	public void compress()
     {
-        char currentChar = '\0'; 
+        char currentChar = '\0'; //noteRhea - what?
         String previous = ""; 
 
         String previousPlusCurrent = "";
@@ -121,9 +121,10 @@ public class LZW2 {
         {
             map.put(letter, ""+(char)letter); 
 
-        }
+        }// note rhea , initalizes ascii values that already exist
 
         int counter = 256;
+        String firstLetOfNxt = "";
 
         for(int i = 0; i < intOutput.size()-1; i++)
         {
@@ -132,10 +133,20 @@ public class LZW2 {
             Integer nextInt = intOutput.get(i+1);
             String nextStr = map.get(nextInt);
 
-            String firstLetOfNxt = nextStr.substring(0,1);
-
-            map.put(counter, currStr+firstLetOfNxt);
-            counter++;
+            
+            //have to add case of 262 
+            if(!map.containsKey(nextInt)) {
+            	currStr = map.get(currInt);
+            	currStr += firstLetOfNxt;
+            }
+            else {
+            	currStr = map.get(nextInt);
+            }
+            
+             firstLetOfNxt = currStr.substring(0,1);
+             map.put(counter, currStr+ firstLetOfNxt);
+             counter++;
+             
         }
         
         

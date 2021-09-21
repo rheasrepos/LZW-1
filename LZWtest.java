@@ -8,7 +8,7 @@ public class LZWtest {
 	hello.compress();
 	hello.decode();
 	
-//	System.out.println(hello.dictionary());
+	System.out.println(hello.dictionary());
 
 	
 	
