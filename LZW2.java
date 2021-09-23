@@ -147,11 +147,11 @@ public class LZW2 {
              firstLetOfNxt = currStr.substring(0,1);
              map.put(counter++, map.get(currInt) + firstLetOfNxt);// have to do map.get(currInt) instead of just currString bc currString has changed to be the next string
              
-            decodedString+= map.get(currInt);// rheas time change - changed from looping thoruh whole dictionary again to just adding to a string while you make the dictionary
+            System.out.print(map.get(currInt));// rheas time change - changed from looping thoruh whole dictionary again to just adding to a string while you make the dictionary
            
              
         }
-       System.out.println(decodedString);
+       //System.out.println(decodedString);
     }
 	
 	public String full()

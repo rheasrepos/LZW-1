@@ -5,3 +5,10 @@ changes output 1 into that array binaries based on output1
 uses BinaryOut class to output a binary.dat file based on output
 decode uses the ArrayList<Integers> to recreate the dictionary
 decodes the array list and prints out the decoded string
+
+
+Rhea: LZW Part 3, making code faster
+Note - decoder wasn't working, error when first ran. decode method did not add to the dictionary when the entries didn't exist
+so there was an error at around the 4th letter. Fixed that and got it working, dictionary is now built correctly and prints the correct output to the console
+Making it faster: originally the code built the dictionary and then after building, looped through the array of input integers and printed out each one recorded
+instead of looping through these integers a separate time, I just created the output while we were building the dictionary. 
